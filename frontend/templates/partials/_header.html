@@ -1,0 +1,28 @@
+{% load static %} {% block content %}
+<header>
+  <nav class="navbar">
+    <div>
+      <ul>
+        <li
+          {% if 'student' not in request.path %} 
+            class="active"
+          {% endif %}
+        >
+          <a href="{% url 'transactions' %}" class="link">
+            Transactions
+          </a>
+        </li>
+        <li
+          {% if 'student' in request.path %} 
+            class="active"
+          {% endif %}
+        >
+          <a href="{% url 'students' %}" class="link">
+            Students
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+{% endblock %}

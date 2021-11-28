@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %} {% block content %}
+
+<!-- Header -->
+{% include './_header.html' %}
+<div class="content-wrapper">
+  <!-- Modal Trigger -->
+  <button data-target="modal1" class="btn modal-trigger">Add Student</button>
+  <div class="student-table-wrapper">
+    <table class="student-table">
+      <thead>
+        <th></th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>DOB</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Date of enrollment</th>
+        <th>Quiz score</th>
+        <th>Python entry level exams</th>
+        <th>AWS Practitioner exams</th>
+        <th>Python associate exams</th>
+        <th>Blockchain exams</th>
+        <th>AWS ML exams</th>
+        <th>Dissertation</th>
+        <th>Date of graduation</th>
+        <th>Job placement</th>
+      </thead>
+      <tbody>
+        {% if students %}
+          {% for student in students %}
+            <tr>
+              <td class="student-id">
+                <a href="{% url 'student' student.id %}">
+                  {{ student.id}}
+                </a>
+              </td>
+              <td>{{ student.first_name }}</td>
+              <td>{{ student.last_name }}</td>
+              <td>{{ student.dob }}</td>
+              <td>{{ student.address }}</td>
+              <td>{{ student.phone }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.date_of_enrollment }}</td>
+              <td>{{ student.quiz_score }}</td>
+              <td>{{ student.python_entry_level }}</td>
+              <td>{{ student.aws_practitioner_exam }}</td>
+              <td>{{ student.python_associate_exam }}</td>
+              <td>{{ student.blockchain_exam}}</td>
+              <td>{{ student.aws_ml_exam }}</td>
+              <td>{{ student.dissertation }}</td>
+              <td>{{ student.date_of_graduation }}</td>
+              <td>{{ student.job_placement }}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Add Student</h4>
+      <form action="{% url 'add-record' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="firstname" placeholder="first name">
+        <input type="text" name="lastname" placeholder="last name">
+        <input type="text" name="dob" placeholder="date of birth">
+        <input type="text" name="address" placeholder="address">
+        <input type="text" name="phone" placeholder="phone">
+        <input type="text" name="email" placeholder="email">
+        <input type="text" name="date_of_enrollment" placeholder="date_of_enrollment">
+        <input type="text" name="quiz_score" placeholder="quiz_score">
+        <input type="text" name="python_entry_level" placeholder="python_entry_level">
+        <input type="text" name="aws_practitioner_exam" placeholder="aws_practitioner_exam">
+        <input type="text" name="python_associate_exam" placeholder="python_associate_exam">
+        <input type="text" name="blockchain_exam" placeholder="blockchain_exam">
+        <input type="text" name="aws_ml_exam" placeholder="aws_ml_exam">
+        <input type="text" name="dissertation " placeholder="dissertation ">
+        <input type="text" name="date_of_graduation" placeholder="date_of_graduation">
+        <input type="text" name="job_placement" placeholder="job_placement">
+        <br /><br />
+        <input type="submit" class="btn btn-primary" value="Add student">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close waves-effect btn-flat">Cancel</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

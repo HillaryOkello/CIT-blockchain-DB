@@ -1,0 +1,28 @@
+{
+  "AWSEBDockerrunVersion": 2,
+    "name": "web",
+    "image": "jhdev96/citadmin-web",
+    "command": [
+      "gunicorn",
+      "citblock.wsgi:application",
+      "--bind",
+      "0.0.0.0:8000"
+    ],
+    "essential": true,
+    "memory": 128,
+    "mountPoints": [
+      {
+        "containerPath": "/home/app/web/static",
+        "sourceVolume": "Static_Volume"
+      }
+    ],
+  "family": "",
+  "volumes": [
+    {
+      "host": {
+        "sourcePath": "static_volume"
+      },
+      "name": "Static_Volume"
+    }
+  ]
+}
