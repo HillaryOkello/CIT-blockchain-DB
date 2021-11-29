@@ -15,14 +15,14 @@ def get_student_fields(request) -> dict:
                         date_of_enrollment=request.POST['date_of_enrollment'],
                         quiz_score=request.POST['quiz_score'],
                         python_entry_level=request.POST['python_entry_level'],
-                        aws_practitioner_exam=request.POST['aws_practitioner_exam'],
+                        aws_practitioner_exam=request.POST.get('aws_practitioner_exam', False),
                         python_associate_exam=request.POST['python_associate_exam'],
                         blockchain_exam=request.POST['blockchain_exam'],
                         aws_ml_exam=request.POST['aws_ml_exam'],
-                        dissertation=request.POST['dissertation'],
+                        # dissertation=request.POST['dissertation'],
                         date_of_graduation=request.POST['date_of_graduation'],
                         job_placement=request.POST['job_placement'],
-                        other=request.POST['other'],
+                        # bio = request.POST.get('bio', False),
                         )
   return student_fields
 
@@ -54,9 +54,9 @@ def add_record(request):
 def update_record(request):
   if request.method =='POST':
     record_id = request.POST['id']
-    student_bio = request.POST['bio']
+    # student_bio = request.POST.get('bio', False)
     student_fields = get_student_fields(request)
-    student_fields['bio'] = student_bio
+    # student_fields['bio'] = student_bio
 
     # get and update the record fields
     record_qs = StudentRecord.objects.filter(id=record_id)

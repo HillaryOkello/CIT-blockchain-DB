@@ -15,7 +15,7 @@
         About {{ student.first_name }} {{ student.last_name }}
         <hr>
       </h5>
-      <!-- <div style="padding: 15px;">
+      <div style="padding: 15px;">
         <textarea 
           class="student-bio" 
           name="bio" 
@@ -23,7 +23,7 @@
           rows="20" 
           placeholder="Enter a bio"
         >{{ student.bio }}</textarea>
-      </div> -->
+      </div>
     </div>
     <div class="col s6">
       <div class="cit-card" style="margin-top: 3em; max-width: 100%; max-height: 440px;">
@@ -34,104 +34,100 @@
         <div class="modal-content">
           <input type="hidden" name="id" value={{ student.id }}>
           <div class="input-field col s6">
-            <input value="{{ student.first_name }}" type="text" name="firstname">
             <label for="first_name">First Name</label>
+            <input value="{{ student.first_name }}" type="text" name="firstname">
           </div>
           <div class="input-field col s6">
-            <input value="{{ student.last_name }}" type="text" name="lastname">
             <label for="last_name">Last Name</label>
+            <input value="{{ student.last_name }}" type="text" name="lastname">
           </div>
           <div class="input-field col s6">
-            <input value="{{ student.dob }}" type="text" name="dob">
             <label for="dob">Date of birth</label>
+            <input value="{{ student.dob }}" type="text" name="dob">
           </div>
           <div class="input-field col s6">
-            <input value="{{ student.address }}" type="text" name="address">
             <label for="address">Address</label>
+            <input value="{{ student.address }}" type="text" name="address">
           </div>
           <div class="input-field col s6">
-            <input value="{{ student.phone }}" type="text" name="phone">
             <label for="phone">Phone</label>
+            <input value="{{ student.phone }}" type="text" name="phone">
           </div>
           <div class="input-field col s6">
-            <input value="{{ student.email }}" type="text" name="email">
             <label for="email">Email</label>
+            <input value="{{ student.email }}" type="text" name="email">
           </div>
           <div class="input-field col s6">
+            <label for="date_of_enrollment">Date of enrollment</label>
             <input 
               type="text" 
               name="date_of_enrollment" 
               value="{{ student.date_of_enrollment }}"
               >
-              <label for="date_of_enrollment">Date of enrollment</label>
           </div>
           <div class="input-field col s6">
+            <label for="quiz_score">Quiz score</label>
             <input 
               type="text" 
               name="quiz_score" 
               value="{{ student.quiz_score }}"
               >
-              <label for="empl_status">Quiz score</label>
           </div>
           <div class="input-field col s6">
+            <label for="python_entry_level">Python entry level exams</label>
             <input 
               type="text" 
               name="python_entry_level" 
               value="{{ student.python_entry_level }}"
             >
-            <label for="python_entry_level">Python entry level exams</label>
           </div>
           <div class="input-field col s6">
+            <label for="aws_practitioner_exam">AWS Practitioner exams</label>
             <input 
               type="text" 
               name="aws_practitioner_exam " 
               value="{{ student.aws_practitioner_exam  }}"
             >
-            <label for="prob-solve">AWS Practitioner exams</label>
           </div>
           <div class="input-field col s6">
+            <label for="python_associate_exam">Python associate exams</label>
             <input 
               type="text" 
               name="python_associate_exam" 
               value="{{ student.python_associate_exam }}"
             >
-            <label for="python_associate_exam">Python associate exams</label>
           </div>
           <div class="input-field col s6">
+            <label for="blockchain_exam">Blockchain exams</label>
             <input 
               type="text" 
               name="blockchain_exam" 
               value="{{ student.blockchain_exam }}"
             >
-            <label for="blockchain_exam">
-              Blockchain exams
-            </label>
           </div>
           <div class="input-field col s6">
+            <label for="aws_ml_exam">AWS ML exams</label>
             <input 
               type="text"  
               name="aws_ml_exam" 
               value="{{ student.aws_ml_exam }}"
             >
-            <label for="aws_ml_exam">AWS ML exams</label>
           </div>
           <div class="input-field col s6">
+            <label for="dissertation">Dissertation</label>
             <input 
               type="text"
               name="dissertation" 
               value="{{ student.dissertation }}"
             >
-            <label for="dissertation">Dissertation</label>
           </div>
           <div class="input-field col s6">
-            <input type="text" name="date_of_graduation" value="{{ student.date_of_graduation }}">
             <label for="date_of_graduation">Date of graduation</label>
+            <input type="text" name="date_of_graduation" value="{{ student.date_of_graduation }}">
           </div>
           <div class="input-field col s6">
+            <label for="job_placement">Job placement</label>
             <input type="text" name="job_placement" value="{{ student.job_placement }}">
-            <label for="job_placement">
-              Job placement
-            </label>
           </div>
           <br />
         </div>

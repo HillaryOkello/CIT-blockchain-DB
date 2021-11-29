@@ -1,21 +1,44 @@
 {
   "AWSEBDockerrunVersion": 2,
-    "name": "web",
-    "image": "jhdev96/citadmin-web",
-    "command": [
-      "gunicorn",
-      "citblock.wsgi:application",
-      "--bind",
-      "0.0.0.0:8000"
-    ],
-    "essential": true,
-    "memory": 128,
-    "mountPoints": [
-      {
-        "containerPath": "/home/app/web/static",
-        "sourceVolume": "Static_Volume"
-      }
-    ],
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "jhdev96/citadmin-web",
+      "command": [
+        "gunicorn",
+        "citblock.wsgi:application",
+        "--bind",
+        "0.0.0.0:8000"
+      ],
+      "essential": true,
+      "memory": 128,
+      "mountPoints": [
+        {
+          "containerPath": "/home/app/web/static",
+          "sourceVolume": "Static_Volume"
+        }
+      ]
+    },
+    {
+      "name": "nginx",
+      "image": "jhdev96/citadmin-nginx",
+      "essential": true,
+      "memory": 128,
+      "links": ["web"],
+      "mountPoints": [
+        {
+          "containerPath": "/home/app/web/static",
+          "sourceVolume": "Static_Volume"
+        }
+      ],
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ]
+    }
+  ],
   "family": "",
   "volumes": [
     {
