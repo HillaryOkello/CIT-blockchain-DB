@@ -22,7 +22,6 @@ def get_student_fields(request) -> dict:
                         # dissertation=request.POST['dissertation'],
                         date_of_graduation=request.POST['date_of_graduation'],
                         job_placement=request.POST['job_placement'],
-                        # bio = request.POST.get('bio', False),
                         )
   return student_fields
 
